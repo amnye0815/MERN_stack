@@ -1,0 +1,118 @@
+Using MongoDB:
+
+Create a database called 'my_first_db'.
+Create students collection.
+Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+Create 5 students with the appropriate info.
+Get all students.
+Retrieve all students who are from California (San Jose Dojo) or Washington (Seattle Dojo).
+Get all students whose lucky number is greater than 3
+Get all students whose lucky number is less than or equal to 10
+Get all students whose lucky number is between 1 and 9 (inclusive)
+Add a field named 'interests' to all student documents in the collection. The field should be an array and contain the following entries: 'coding', 'brunch', MongoDB'. Add this field to all documents using a single command.
+Add some unique interests for each particular student into each of their interest arrays.
+Add the interest 'taxes' into someone's interest array.
+Remove the 'taxes' interest you just added.
+Remove all students who are from California.
+Remove a student by name.
+Remove a student whose lucky number is greater than 5 (JUST ONE)
+Add a field to each student collection called 'number_of_belts' and set it to 0.
+Increment this field by 1 for all students in Washington (Seattle Dojo).
+Rename the 'number_of_belts' field to 'belts_earned'
+Remove the 'lucky_number' field.
+Add a 'updated_on' field, and set the value as the current date.
+
+Terminal (in MongoDB Shell):
+
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use my_first_db
+switched to db my_first_db
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> show collections
+>
+> db.createCollection("students")
+{ "ok" : 1 }
+> show dbs
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+my_first_db  0.000GB
+> use my_first_db
+switched to db my_first_db
+> show collections
+students
+> db.students.insert({name: "Austin", home_state: "Washington", lucky_number: 2, birthday:{month: 08, day: 15, year: 1990}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "William", home_state:"Washington", lucky_number: 8, birthday: {month: 06, day: 06, year: 1989}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Michael", home_state:"Washington", lucky_number: 13, birthday: {month: 12, day: 09, year: 1995}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Artiom", home_state:"California", lucky_number: 7, birthday:{month: 05, day: 02, year: 1992}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Christine", home_state: "California", lucky_number: 12, birthday:{month: 07, day: 25, year: 1950}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find({})
+{ "_id" : ObjectId("613033ac85f7a5904eb8b4c7"), "name" : "Austin", "home_state" : "Washington", "lucky_number" : 2, "birthday" : { "month" : 8, "day" : 15, "year" : 1990 } }
+{ "_id" : ObjectId("6130341b85f7a5904eb8b4c8"), "name" : "William", "home_state" : "Washington", "lucky_number" : 8, "birthday" : { "month" : 6, "day" : 6, "year" : 1989 } }
+{ "_id" : ObjectId("6130344b85f7a5904eb8b4c9"), "name" : "Michael", "home_state" : "Washington", "lucky_number" : 13, "birthday" : { "month" : 12, "day" : 9, "year" : 1995 } }
+{ "_id" : ObjectId("6130348685f7a5904eb8b4ca"), "name" : "Artiom", "home_state" : "California", "lucky_number" : 7, "birthday" : { "month" : 5, "day" : 2, "year" : 1992 } }
+{ "_id" : ObjectId("613034e685f7a5904eb8b4cb"), "name" : "Christine", "home_state" : "California", "lucky_number" : 12, "birthday" : { "month" : 7, "day" : 25, "year" : 1950 } }
+> db.students.find({home_state: "Washington"})
+{ "_id" : ObjectId("613033ac85f7a5904eb8b4c7"), "name" : "Austin", "home_state" : "Washington", "lucky_number" : 2, "birthday" : { "month" : 8, "day" : 15, "year" : 1990 } }
+{ "_id" : ObjectId("6130341b85f7a5904eb8b4c8"), "name" : "William", "home_state" : "Washington", "lucky_number" : 8, "birthday" : { "month" : 6, "day" : 6, "year" : 1989 } }
+{ "_id" : ObjectId("6130344b85f7a5904eb8b4c9"), "name" : "Michael", "home_state" : "Washington", "lucky_number" : 13, "birthday" : { "month" : 12, "day" : 9, "year" : 1995 } }
+> db.students.find({lucky_number: >3})
+uncaught exception: SyntaxError: expected expression, got '>' :
+@(shell):1:32
+> db.students.find({lucky_number: { $gt:3 }})
+{ "_id" : ObjectId("6130341b85f7a5904eb8b4c8"), "name" : "William", "home_state" : "Washington", "lucky_number" : 8, "birthday" : { "month" : 6, "day" : 6, "year" : 1989 } }
+{ "_id" : ObjectId("6130344b85f7a5904eb8b4c9"), "name" : "Michael", "home_state" : "Washington", "lucky_number" : 13, "birthday" : { "month" : 12, "day" : 9, "year" : 1995 } }
+{ "_id" : ObjectId("6130348685f7a5904eb8b4ca"), "name" : "Artiom", "home_state" : "California", "lucky_number" : 7, "birthday" : { "month" : 5, "day" : 2, "year" : 1992 } }
+{ "_id" : ObjectId("613034e685f7a5904eb8b4cb"), "name" : "Christine", "home_state" : "California", "lucky_number" : 12, "birthday" : { "month" : 7, "day" : 25, "year" : 1950 } }
+> db.students.find({lucky_number: { $lte: 10}})
+{ "_id" : ObjectId("613033ac85f7a5904eb8b4c7"), "name" : "Austin", "home_state" : "Washington", "lucky_number" : 2, "birthday" : { "month" : 8, "day" : 15, "year" : 1990 } }
+{ "_id" : ObjectId("6130341b85f7a5904eb8b4c8"), "name" : "William", "home_state" : "Washington", "lucky_number" : 8, "birthday" : { "month" : 6, "day" : 6, "year" : 1989 } }
+{ "_id" : ObjectId("6130348685f7a5904eb8b4ca"), "name" : "Artiom", "home_state" : "California", "lucky_number" : 7, "birthday" : { "month" : 5, "day" : 2, "year" : 1992 } }
+> db.students.find({lucky_number: { $gte : 1, $lte : 9}})
+{ "_id" : ObjectId("613033ac85f7a5904eb8b4c7"), "name" : "Austin", "home_state" : "Washington", "lucky_number" : 2, "birthday" : { "month" : 8, "day" : 15, "year" : 1990 } }
+{ "_id" : ObjectId("6130341b85f7a5904eb8b4c8"), "name" : "William", "home_state" : "Washington", "lucky_number" : 8, "birthday" : { "month" : 6, "day" : 6, "year" : 1989 } }
+{ "_id" : ObjectId("6130348685f7a5904eb8b4ca"), "name" : "Artiom", "home_state" : "California", "lucky_number" : 7, "birthday" : { "month" : 5, "day" : 2, "year" : 1992 } }
+> db.students.update({name:"Austin", {$push: {interests: {$each:['crocheting', 'animals']}}}})
+uncaught exception: SyntaxError: expected property name, got '{' :
+@(shell):1:35
+> db.students.update({name: "Austin"}, {$push: {interests: {$each:['crocheting', 'animals']}}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name: "Christine"}, {$push: {interests: {$each:['canoeing', 'gardening']}}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name: "Michael"}, {$push: {interests: {$each:['disc golfing', 'spinning staff']}}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name: "Artiom"}, {$push: {interests:'taxes'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name: "Artiom"}, {$pull: {interests: 'taxes'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.remove({home_state: "California"})
+WriteResult({ "nRemoved" : 2 })
+> db.students.remove({name: "Michael"})
+WriteResult({ "nRemoved" : 1 })
+> db.students.remove({lucky_number: {$gt:5}}, {justOne:true})
+WriteResult({ "nRemoved" : 1 })
+> show collections
+students
+> db.students.find({})
+{ "_id" : ObjectId("613033ac85f7a5904eb8b4c7"), "name" : "Austin", "home_state" : "Washington", "lucky_number" : 2, "birthday" : { "month" : 8, "day" : 15, "year" : 1990 }, "interests" : [ "coding", "brunch", "MongoDB", "crocheting", "animals" ] }
+> db.students.update({},{$set: {"number_of_belts":0}},{multi:true})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({home_state: "Washington"},{$inc: {number_of_belts: 1}},{multi:true})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({}, {$rename: {"number_of_belts":"belts_earned"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({}, {$unset:{lucky_number:""}},{multi:true})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({}, {$currentDate:{updated_on:true}},{multi:true})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
