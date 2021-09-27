@@ -6,10 +6,10 @@ const [ randomCar ] = cars
 const [ ,otherRandomCar ] = cars
 //Predict the output
 console.log(randomCar)
-console.log(otherRandomCar
+console.log(otherRandomCar)
 
 output:
-Mercedes
+Honda
 Tesla
 ------------------------------------------------------
 Problem 2:
@@ -25,9 +25,7 @@ console.log(otherName);
 
 output:
 Elon
-undefined or error
-
-ACTUAL ANSWER -> Name is not defined
+undefined
 ------------------------------------------------------
 Problem 3:
 const person = {
@@ -43,7 +41,7 @@ console.log(hashedPassword);
 
 output: 
 12345
-undefined or error
+undefined
 ------------------------------------------------------
 Problem 4:
 const numbers = [8, 2, 3, 5, 6, 1, 67, 12, 2];
@@ -55,8 +53,8 @@ console.log(first == second);
 console.log(first == third);
 
 output:
-2
-3
+false
+null
 
 ACTUAL ANSWER -> false, true
 -------------------------------------------------------
@@ -78,4 +76,4 @@ output:
 value
 [1,5,1,8,3,3]
 1
-[5,1,8,3,3] ----> this is actually just 5
+5 (you skip the first value due to the ,).
