@@ -11,14 +11,14 @@ const UserForm = (props) => {
         e.preventDefault();
 
         const newUser = { first, last, email, password, confirm };
+        console.log("Welcome", newUser);
         setFirst("");
         setLast("");
         setEmail("");
         setPassword("");
         setConfirm("");
         };
-        console.log("Welcome", newUser);
-    };
+
     return (
         <form onSubmit={ createUser }>
             <div>
@@ -42,6 +42,12 @@ const UserForm = (props) => {
                 <input type="password" value={ confirm } onChange={ (e) => setConfirm(e.target.value) } />
             </div>
             <input type="submit" value="Create User" />
+            <p>Your Form Data:</p>
+            <p>First Name: { first }</p>
+            <p>Last Name: { last }</p>
+            <p>Email: { email }</p>
+            <p>Password: { password }</p>
+            <p>Confirm Password: { confirm }</p>
         </form>
     );
 };
