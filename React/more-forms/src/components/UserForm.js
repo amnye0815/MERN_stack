@@ -60,7 +60,7 @@ const UserForm = (props) => {
                 setPasswordError("");
             } else if(e.target.value.length < 8) {
                 setPasswordError("Password must be at least 8 characters!");
-            } else if(e.target.value != setConfirm) {
+            } else if(e.target.value !== setConfirm) {
                 setPasswordError("Passwords must match!");
             } else{
                 setPasswordError("");
@@ -72,7 +72,7 @@ const UserForm = (props) => {
                 setConfirmError("");
             } else if(e.target.value.length < 8) {
                 setConfirmError("Password must be at least 8 characters!");
-            } else if(e.target.value != setPassword) {
+            } else if(e.target.value !== setPassword) {
                 setConfirmError("Passwords must match!");
             } else{
                 setConfirmError("");
