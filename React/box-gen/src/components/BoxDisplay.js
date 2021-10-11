@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const BoxDisplay = (props) => {
     const { newBoxArray } = props;
 
