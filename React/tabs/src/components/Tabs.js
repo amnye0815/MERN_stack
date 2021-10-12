@@ -12,15 +12,13 @@ const Tabs = () => {
     // onClickHandler to iterate through array that corresponds with the different color/tab content
     // Click functions on buttons that corresponds with content (yellow, magenta, cyan)
     // NINJA: When button is clicked the button itself changes 
-
-    return tabContent.map( (item, index) => {
-        return (
-        <div className="btn-group" key={index}>
-            <button className="btn" onClick ={( e) => onClickHandler(e, item)}>Tab 1</button>
-            <button className="btn" onClick ={( e) => onClickHandler(e, item)}>Tab 2</button>
-            <button className="btn" onClick ={(e) => onClickHandler(e, item)}>Tab 3</button>
+    return (
+        <div className="btn-group">
+            <button className="btn">Tab 1</button>
+            <button className="btn">Tab 2</button>
+            <button className="btn">Tab 3</button>
         </div>
-    )});
+    );
 }
 
 export default Tabs;
