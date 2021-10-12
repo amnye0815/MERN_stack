@@ -11,7 +11,7 @@ function App () {
       <div className="App">
         <Header />
         <Form newTask={newTask} setNewTask={setNewTask} />
-        <Display />
+        <Display newTask={newTask} />
       </div>
   );
 }
