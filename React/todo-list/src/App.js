@@ -5,10 +5,12 @@ import Display from './components/Display';
 import './App.css';
 
 function App () {
+  const [newTask, setNewTask] = useState([]);
+
   return(
       <div className="App">
         <Header />
-        <Form />
+        <Form newTask={newTask} setNewTask={setNewTask} />
         <Display />
       </div>
   );
