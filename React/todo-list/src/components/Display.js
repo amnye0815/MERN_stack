@@ -1,9 +1,20 @@
 import React from 'react';
 
 const Display = (props) => {
-    const { newTask } = props;
+    const { newTask, setNewTask } = props;
 
-    // ADD DELETE FUNCTION OF ONCLICK HANDLER
+    const deleteHandler = (taskToDelete) => {
+        console.log(taskToDelete);
+        setNewTask(newTask.filter((task)=>{
+            return task.content !== taskToDelete;
+        }));
+    }
+    const checkHandler = (taskCompleted) => {
+        console.log(taskCompleted);
+        taskCompleted.isCompleted = !taskCompleted.isCompleted;
+        const updatedToDos = [...newTask];
+        setNewTask(updatedToDos);
+        }
     // ADD STRIKETHROUGH CSS WITH CHECKED? TERNARY OPERATOR
     return (
         <div>
@@ -12,9 +23,13 @@ const Display = (props) => {
                 {
                 newTask.map((task, index)=>(
                     <div key={index}>
-                        <label>{task.content}</label>
-                        <input type="checkbox" />
-                        <button>Delete</button>
+                        {
+                            task.isCompleted? 
+                            <label style={{ textDecoration: "line-through" }}>{task.content}</label> :
+                            <label>{task.content}</label>
+                        }
+                        <input type="checkbox" onClick={(e)=> checkHandler(task)} />
+                        <button onClick={(e)=> deleteHandler(task.content)}>Delete</button>
                     </div>
                     ))
                 }

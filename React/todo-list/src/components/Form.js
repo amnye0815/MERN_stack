@@ -8,7 +8,9 @@ const Form = (props) => {
     const submitHandler = (e) =>{
     e.preventDefault();
 
-    setNewTask([...newTask, {content: content}]);
+    setNewTask([...newTask, {content: content,
+    isCompleted: false,
+    }]);
     setContent("");
 
     }

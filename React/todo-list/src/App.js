@@ -6,12 +6,12 @@ import './App.css';
 
 function App () {
   const [newTask, setNewTask] = useState([]);
-
+  
   return(
       <div className="App">
         <Header />
         <Form newTask={newTask} setNewTask={setNewTask} />
-        <Display newTask={newTask} />
+        <Display newTask={newTask} setNewTask={setNewTask} />
       </div>
   );
 }
