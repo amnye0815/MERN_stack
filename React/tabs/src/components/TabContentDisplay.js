@@ -8,7 +8,14 @@ const TabContentDisplay = (props) => {
     const {tabContent, setTabContent} = props;
 
     return (
-        <div>
+        <div style={{
+            alignItems: "center", 
+            justifyContent: "center", 
+            height: "150px", 
+            marginTop: "20px",
+            marginLeft: "650px", 
+            marginRight: "650px", 
+            border: "3px solid black" }}>
             {tabContent}
         </div>
     

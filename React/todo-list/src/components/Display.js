@@ -15,7 +15,7 @@ const Display = (props) => {
         const updatedToDos = [...newTask];
         setNewTask(updatedToDos);
         }
-    // ADD STRIKETHROUGH CSS WITH CHECKED? TERNARY OPERATOR
+
     return (
         <div>
             <h3><u>To Do List</u></h3>
