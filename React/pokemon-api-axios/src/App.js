@@ -3,20 +3,21 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 function App() {
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() =>{
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=807")
-    .then (response => setPokemon(response.data.results))
+    .then (response => setPokemonList(response.data.results))
+    .catch(err => console.log(err))
   }, []);
 
   return (
     <div className="App">
       <button>Fetch Pokemon</button>
       <ul>
-        {pokemon.map((pokemonName, index) =>{
-          <li key={index}>{pokemonName.name}</li>
-        })}
+        {pokemonList.map((pokemon, index) =>
+          <li key={index}>{pokemon.name}</li>
+        )}
       </ul>
     </div>
   );
