@@ -6,7 +6,12 @@ const WordOrNumber = (props) => {
         <div>
             {
                 isNaN(props.word)?
-                <p>The word is: {props.word}</p>
+                <p style={
+                    props.color?
+                    {color: props.color, backgroundColor: props.bgColor}
+                    :null
+                }
+                >The word is: {props.word}</p>
                 :<p>The number is: {props.word}</p>
             }
         </div>
