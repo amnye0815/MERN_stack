@@ -2,14 +2,16 @@ import './App.css';
 import React from 'react';
 import { Router } from '@reach/router';
 import Home from './components/Home';
+import Word from './components/Word';
+import Number from './components/Number';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Home path="/home" />
-        <Home path="/:word" />
-        <Home path="/:word/:color/:bgCol" />
+        <Word path="/:word" />
+        <Number path="/:int" />
       </Router>
     </div>
   );
