@@ -3,7 +3,7 @@ import React from 'react';
 
 const Home = (props) => {
     return(
-        <p>Welcome</p>
+        <p>Welcome!</p>
     );
 }
 export default Home;
