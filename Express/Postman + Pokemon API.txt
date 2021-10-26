@@ -1,3 +1,18 @@
 Postman + Pokemon API:
 
 #1
+https://pokeapi.co/api/v2/pokemon/35/
+
+output: (shortened)
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "cute-charm",
+                "url": "https://pokeapi.co/api/v2/ability/56/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+
+#2
