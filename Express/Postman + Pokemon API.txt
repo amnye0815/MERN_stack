@@ -16,3 +16,62 @@ output: (shortened)
         },
 
 #2
+https://pokeapi.co/api/v2/pokemon/bulbasaur/
+
+output: (shortened)
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "overgrow",
+                "url": "https://pokeapi.co/api/v2/ability/65/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+
+#3
+https://pokeapi.co/api/v2/pokemon/mew
+
+output: (shortened)
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "synchronize",
+                "url": "https://pokeapi.co/api/v2/ability/28/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        }
+
+#4
+https://pokeapi.co/api/v2/pokemon/56
+
+output: (shortened)
+
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "vital-spirit",
+                "url": "https://pokeapi.co/api/v2/ability/72/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+
+#5 
+https://pokeapi.co/api/v2/pokemon/700
+
+output: (shortened)
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "cute-charm",
+                "url": "https://pokeapi.co/api/v2/ability/56/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
