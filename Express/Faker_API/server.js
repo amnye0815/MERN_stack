@@ -38,7 +38,7 @@ const createCompany = () => {
         zipCode: faker.address.zipCode(),
         country: faker.address.country()
     };
-    return newCompany;
+    return newFakeCompany;
 };
 
 const newFakeCompany = createCompany();
