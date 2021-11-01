@@ -6,3 +6,4 @@ mongoose.connect('mongodb://localhost/jokes_db', {
 })
     .then(() => console.log("Established a connection to DB"))
     .catch(err => console.log("Something went wrong. Connection not made.", err));
+
