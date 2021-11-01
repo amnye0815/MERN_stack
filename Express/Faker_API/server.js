@@ -2,6 +2,9 @@ const express = require("express");
 const faker = require("faker");
 const app = express();
 
+app.use(express.json() );
+app.use(express.urlencoded({extended: true}));
+
 app.get("/api/users/new", (req, res) => {
     res.json({newFakeUser});
 });
