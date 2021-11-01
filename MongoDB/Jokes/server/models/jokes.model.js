@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
 const JokeSchema = new mongoose.Schema({
-    setup: String,
-    punchline: String,
-    __v: Number
+    setup: {type: String},
+    punchline: {type: String},
 },
     { timestamps: true }
 );

@@ -7,7 +7,7 @@ module.exports.findAllJokes = (req, res) => {
 }
 
 module.exports.findThisJoke = (req, res) => {
-    Joke.findThis({ _id: req.params.id })
+    Joke.findOne({ _id: req.params.id })
     .then(thisJoke => res.json({ joke: thisJoke }))
     .catch(err => res.json({ message: "Something went wrong", error: err }));
 }
@@ -19,7 +19,7 @@ module.exports.createNewJoke = (req, res) => {
 }
 
 module.exports.updateExistingJoke = (req, res) => {
-    Joke.findToUpdate(
+    Joke.findOneAndUpdate(
         { _id: req.params.id },
         req.body,
         { new: true, runValidators: true }
@@ -29,7 +29,7 @@ module.exports.updateExistingJoke = (req, res) => {
 }
 
 module.exports.deleteThisJoke = (req, res) => {
-    Joke.deleteThis({ _id: req.params.id })
+    Joke.deleteOne({ _id: req.params.id })
         .then(result => res.json({ result: result }))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 }
