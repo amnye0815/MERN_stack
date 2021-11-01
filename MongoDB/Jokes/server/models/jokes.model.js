@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
+cfonst mongoose = require("mongoose");
 
 const JokeSchema = new mongoose.Schema({
     setup: String,
     punchline: String,
-    createdAt: Date,
-    updatedAt: Date,
     __v: Number
-});
+},
+    { timestamps: true }
+);
 
 const Joke = mongoose.model("Joke", JokeSchema);
 
