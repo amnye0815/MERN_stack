@@ -1,5 +1,12 @@
+const Product = require('../models/product.model');
 
-// just to start off the code....but will actually have product reasoning.
-module.exports.index = (req, res) => {
-    res.json({ message: "Hello World" });
+module.exports.createProduct = (req, res) => {
+    const { title, price, desc } = req.body;
+    Product.create({
+        title, 
+        price,
+        desc
+    })
+        .then(product=> res.json(product))
+        .catch(err=> res.json(err));
 }
