@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
 const Main = () => {
     const [ message, setMessage ] = useState("Loading...");
-    useEffect(()=> {
+    
+    useEffect(() => {
         axios.get("http://localhost:8000/api")
-            .then(res=> setMessage(res.data.product))
+            .then(res=> setMessage(res.data.message))
     }, []);
+
     return(
         <div>
             <h1>Product Manager</h1>
