@@ -11,11 +11,11 @@ module.exports.createProduct = (req, res) => {
         .catch(err=> res.json(err));
 }
 
-// module.exports.findAllProducts = (req, res) => {
-//     Product.find()
-//         .then(allProducts=> res.json(allProducts))
-//         .catch(err=> res.json(err));
-// }
+module.exports.findAllProducts = (req, res) => {
+    Product.find()
+        .then(allProducts=> res.json(allProducts))
+        .catch(err=> res.json(err));
+}
 
 // module.exports.findThisProduct = (req, res) => {
 //     Product.findOne({ _id: req.params.id })
