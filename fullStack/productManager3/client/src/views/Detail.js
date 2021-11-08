@@ -15,6 +15,8 @@ const Detail = (props) => {
             <p>Title: {product.title}</p>
             <p>Price: {product.price}</p>
             <p>Description: {product.desc}</p>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
     )
 }

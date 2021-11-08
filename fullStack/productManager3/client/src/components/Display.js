@@ -8,6 +8,7 @@ const Display = (props) => {
             {props.product.map((product, index) =>{
                 return <div>
                     <Link to = "/products/:id" key={index}>{product.title}</Link>
+                    <button>Delete</button>
                     </div>
             })}
         </div>
