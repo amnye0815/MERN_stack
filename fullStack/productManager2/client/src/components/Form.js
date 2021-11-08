@@ -26,6 +26,7 @@ const Form = (props) => {
 
     return (
         <form onSubmit={ submitHandler }>
+            <h1>Create A Product</h1>
             <div>
                 <label>Title: </label>
                 <input type="text" value={ title } onChange={(e)=> setTitle(e.target.value)} />

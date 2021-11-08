@@ -17,7 +17,6 @@ const Main = () => {
 
     return(
         <div>
-            <h1>Product Manager</h1>
             <Form />
             <hr/>
             { loaded && <Display product={product}/> }
