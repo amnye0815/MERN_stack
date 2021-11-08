@@ -18,7 +18,6 @@ const Form = (props) => {
             .then(res=> console.log(res))
             .catch(err=> console.log(err))
 
-        // setProduct([...product, {title: title, price: price, desc: desc}]);
         setTitle("");
         setPrice("");
         setDesc("");
