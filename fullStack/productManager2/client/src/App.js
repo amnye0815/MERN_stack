@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Main path="/products/" />
+        <Main path="/" />
         <Detail path="/products/:id" />
       </Router>
     </div>

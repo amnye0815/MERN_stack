@@ -3,9 +3,10 @@ import axios from 'axios';
 
 const Detail = (props) => {
     const [product, setProduct] = useState({});
+    const {id} = props;
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/products/:id")
+        axios.get(`http://localhost:8000/api/products/${id}`)
             .then(res=> setProduct({
                 ...res.data
             }))
