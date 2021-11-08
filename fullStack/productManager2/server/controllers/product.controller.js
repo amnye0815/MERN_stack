@@ -12,7 +12,7 @@ module.exports.createProduct = (req, res) => {
 }
 
 module.exports.findAllProducts = (req, res) => {
-    Product.find()
+    Product.find({})
         .then(allProducts=> res.json(allProducts))
         .catch(err=> res.json(err));
 }
