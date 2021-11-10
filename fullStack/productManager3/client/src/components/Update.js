@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { navigate } from "@reach/router";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { navigate } from '@reach/router';
 
 const Update = (props) => {
     const { id } = props;
@@ -13,9 +13,10 @@ const Update = (props) => {
         axios.get(`http://localhost:8000/api/products/${id}`)
             .then((res) => { 
             console.log(res.data);
+            setProduct(res.data);
             setTitle(res.data.title);
             setPrice(res.data.price);
-            setDescription(res.data.desc);
+            setDesc(res.data.desc);
             })
             .catch((err) => console.log(err));
     }, []);
@@ -23,26 +24,27 @@ const Update = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         const updatedProduct = { title, price, desc };
-            axios.put(`http://localhost:8000/api/products/${id}`, updatedProduct)
+            axios.put(`http://localhost:8000/api/products/edit/${id}`, updatedProduct)
                 .then((res) => {
                 console.log(res.data);
-                navigate("/");
+                navigate(`/products/${id}`)
                 })
                 .catch((err) => console.log(err));
     };
+
     return (
         <form onSubmit={submitHandler}>
-            <h1>Edit Product</h1>
+            <h1>Edit Product:</h1>
             <div>
-                <label htmlFor="title">Title</label>
+                <label>Title: </label>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             </div>
             <div>
-                <label htmlFor="price">Price</label>
+                <label>Price: </label>
                 <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
             </div>
             <div>
-                <label htmlFor="desc">Description</label>
+                <label>Description: </label>
                 <input type="text" value={desc} onChange={(e) => setDesc(e.target.value)} />
             </div>
             <button type="submit">Submit</button>

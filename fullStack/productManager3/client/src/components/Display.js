@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Display = (props) => {
     const {product, setProduct} = props;
+    const { _id, deleteHandler } = props;
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/products')
@@ -19,6 +20,7 @@ const Display = (props) => {
             {product.map((product, index) =>{
                 return <div>
                     <Link to = {`/products/${product._id}`} key={index}>{product.title}</Link>
+                    <button style={{marginLeft: "10px"}} onClick={(e)=> deleteHandler(product._id)}>Delete</button>
                     </div>
             })}
         </div>

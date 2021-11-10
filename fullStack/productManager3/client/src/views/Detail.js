@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from '@reach/router';
 import axios from 'axios';
 
 const Detail = (props) => {
@@ -16,8 +17,8 @@ const Detail = (props) => {
             <p>Title: {product.title}</p>
             <p>Price: {product.price}</p>
             <p>Description: {product.desc}</p>
-                <button style={{margin: "10px"}}>Edit</button>
-                <button>Delete</button>
+            <Link to = {`/products/edit/${product._id}`} style={{margin: "10px"}}>Edit</Link>
+            <Link to = {`/`}>Home</Link>
         </div>
     )
 }
