@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Form = (props) => {
-    // const {product, setProduct} = props;
+    const {product, setProduct} = props;
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [desc, setDesc] = useState("");
@@ -15,9 +15,12 @@ const Form = (props) => {
             price: price,
             desc: desc
         })
-            .then(res=> console.log(res))
+            .then(res=> {
+                console.log(res)
+                setProduct([...product, res.data]);
+            })
             .catch(err=> console.log(err))
-
+            
         setTitle("");
         setPrice("");
         setDesc("");
