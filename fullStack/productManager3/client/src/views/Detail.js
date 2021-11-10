@@ -16,6 +16,8 @@ const Detail = (props) => {
             <p>Title: {product.title}</p>
             <p>Price: {product.price}</p>
             <p>Description: {product.desc}</p>
+                <button style={{margin: "10px"}}>Edit</button>
+                <button>Delete</button>
         </div>
     )
 }
