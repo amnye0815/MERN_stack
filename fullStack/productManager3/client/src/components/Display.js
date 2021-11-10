@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import { Link } from '@reach/router';
 import axios from 'axios';
 
 
 const Display = (props) => {
-    const {product, setProduct} = props;
-    const { _id, deleteHandler } = props;
+    const [product, setProduct] = useState({});
+    const { id, deleteHandler } = props;
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/products')
