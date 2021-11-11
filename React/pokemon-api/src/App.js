@@ -5,19 +5,28 @@ import React, { useEffect, useState } from 'react';
 function App() {
   const [pokemon, setPokemon] = useState([]);
 
-  useEffect(() =>{
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
-    .then (response => response.json())
-    .then (response => setPokemon(response.results))
+  useEffect(()=>{
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=808')
+      .then((res)=>{
+        return res.json();
+      })
+      .then((res)=>{
+        setPokemon(res.results);
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
   }, []);
-
+  
   return (
     <div className="App">
-      <button>Fetch Pokemon</button>
+      <h3>Pokemon - <span className="practice">All 807 of them!</span></h3>
       <ul>
-        {pokemon.length > 0 && pokemon.map((pokemon, index) =>{
-          return(<li key={index}>{pokemon.name}</li>)
-        })}
+        {
+          pokemon.map((pokemonByName, index)=>{
+            return (<li key={index}>{pokemonByName.name}</li>)
+          })
+        }
       </ul>
     </div>
   );

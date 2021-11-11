@@ -4,13 +4,14 @@ import BoxDisplay from './components/BoxDisplay';
 import { useState } from 'react';
 
 function App() {
-  const [newBoxArray, setNewBoxArray] = useState([]);
+
+  const [boxColorArray, setBoxColorArray] = useState([]);
 
   return (
     <div className="App">
-      <h1 className="header"><u>Box Generator</u></h1>
-      <BoxForm newBoxArray={newBoxArray} setNewBoxArray={setNewBoxArray}/>
-      <BoxDisplay newBoxArray={newBoxArray}/>
+      <h1><u>Box Generator</u></h1>
+      <BoxForm boxColorArray = { boxColorArray } setBoxColorArray = { setBoxColorArray } />
+      <BoxDisplay boxColorArray = { boxColorArray } setBoxColorArray = { setBoxColorArray } />
     </div>
   );
 }

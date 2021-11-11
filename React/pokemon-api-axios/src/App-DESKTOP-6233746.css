@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.practice{
-  color: rgb(233, 89, 233);
+li {
+  width: 100px;
+  margin: auto;
 }
 
 .App-logo {
