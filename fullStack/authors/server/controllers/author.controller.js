@@ -28,7 +28,11 @@ module.exports = {
     },
 
     getAllAuthors: (req, res) => {
+<<<<<<< HEAD
         Author.find({}).collation({locale:'en',strength: 2}).sort({authorName:1})
+=======
+        Author.find({})
+>>>>>>> 6d2bb146bbb9167af54c295a88ff18321dd38288
             .then((allAuthors)=>{
                 console.log(allAuthors);
                 res.json(allAuthors);
